@@ -51,8 +51,9 @@ interface PaginatedResponse {
 }
 
 // Configuration - Using Vite's import.meta.env
-const API_BASE_URL = "http://localhost:3001"; // In Vite: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'
-const CURRENT_USER = "current_user"; // In Vite: import.meta.env.VITE_CURRENT_USER || 'current_user'
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
+const CURRENT_USER = import.meta.env.VITE_CURRENT_USER || "current_user";
 
 // Utility functions
 const formatDate = (timestamp: number): string => {
@@ -385,7 +386,7 @@ const TransactionDashboard: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 10,
+    limit: 15,
     total: 0,
     totalPages: 0,
   });
@@ -463,7 +464,7 @@ const TransactionDashboard: React.FC = () => {
           "Failed to load transactions. Please check your connection and try again."
         );
         setTransactions([]);
-        setPagination({ page: 1, limit: 10, total: 0, totalPages: 0 });
+        setPagination({ page: 1, limit: 15, total: 0, totalPages: 0 });
         setSummaryStats({ incomingSum: 0, outgoingSum: 0 });
       } finally {
         setIsLoading(false);
