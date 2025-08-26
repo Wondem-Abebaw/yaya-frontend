@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Transaction, PaginatedResponse } from "../types/transaction";
 import { apiClient } from "../utils/api";
 

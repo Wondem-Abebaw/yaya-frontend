@@ -1,4 +1,4 @@
-import React from "react";
+
 import TransactionDashboard from "./components/TransactionDashboard";
 import "./App.css";
 
